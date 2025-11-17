@@ -48,7 +48,7 @@ def transform(data):
 
     return data
 
-# Consolidating extracted & transformed data to new file
+# Transferring transformed data to new file
 def load_data(target_file, transformed_data):
     transformed_data.to_csv(target_file)
 
