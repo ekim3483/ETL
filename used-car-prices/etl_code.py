@@ -6,6 +6,7 @@ from datetime import datetime
 log_file = "log_file.txt"
 target_file = "transformed_data.csv"
 
+# Functions to extract data from csv, json and xml files
 def extract_from_csv(file_to_process):
     df = pd.read_csv(file_to_process)
     return df
@@ -41,15 +42,17 @@ def extract():
 
     return extracted_data
 
-
+# Rounding 'price' to 2 decimal places
 def transform(data):
     data['price'] = round(data.price,2)
 
     return data
 
+# Consolidating extracted & transformed data to new file
 def load_data(target_file, transformed_data):
     transformed_data.to_csv(target_file)
 
+# Output record of processes with timestamps into a log file
 def log_progress(message):
     timestamp_format = '%Y-%h-%d-%H:%M:%S'
     now = datetime.now()
